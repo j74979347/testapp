@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bnb-dev-43407-authRole",
+      "UnauthRoleArn": "arn:aws:iam::312764695563:role/amplify-bnb-dev-43407-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::312764695563:role/amplify-bnb-dev-43407-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bnb-dev-43407-deployment",
+      "UnauthRoleName": "amplify-bnb-dev-43407-unauthRole",
+      "StackName": "amplify-bnb-dev-43407",
+      "StackId": "arn:aws:cloudformation:us-east-1:312764695563:stack/amplify-bnb-dev-43407/33f83f70-0a0a-11eb-a4a9-12498e67507f",
+      "AmplifyAppId": "d1i1dy9rwwy6bc"
+    },
+    "categories": {
+      "auth": {
+        "bnba32aae95": {}
+      }
+    }
+  }
+}

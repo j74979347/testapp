@@ -1,0 +1,23 @@
+<div class="container-login-btn" *ngIf="!createNewAvatar">
+  <button class="login-btn" (click)="newAvatar()">
+    Create a New Avatar
+  </button>
+</div>
+<div class="carousel" *ngIf="!createNewAvatar">
+  <ng-container *ngFor="let avatar of avatars; let i = index">
+    <div class="slide">
+      <app-manage-character  *ngIf="i === currentSlide" [avatarDetails]="avatar" [createNewAvatar] = 'createNewAvatar' (saveEvent)="saveEvent($event, avatar.guid)" ></app-manage-character>
+    </div>
+  </ng-container>
+
+  <!-- controls -->
+  <button class="control prev" (click)="onPreviousClick()">
+    <span class="arrow left"></span>
+  </button>
+  <button class="control next" (click)="onNextClick()">
+    <span class="arrow right"></span>
+  </button>
+</div>
+<div class="carousel" *ngIf="createNewAvatar">
+  <app-manage-character  [avatarDetails]="newAvatars" [createNewAvatar] = 'createNewAvatar' (saveEvent)="saveEvent($event)" (cancelEvent)="cancelEvent()" ></app-manage-character>
+</div>

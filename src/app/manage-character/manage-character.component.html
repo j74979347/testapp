@@ -1,0 +1,66 @@
+<div class="manage-character">
+  <div class="left-container" *ngIf="!createNewAvatar">
+    <div class="imgDiv">
+      <img class="avatar-image" [src]="avatarSource" alt="Avatar">
+      <div class="shadow"></div>
+    </div>
+    <div class="name">
+        <input class="input" type="text" [(ngModel)]="avatarDetails.name">
+    </div>
+  </div>
+  <div class="left-container" *ngIf="createNewAvatar">
+    <div class="carousel">
+      <ng-container *ngFor="let avatar of avatars; let i = index">
+        <div class="imgDiv" *ngIf="i === currentSlide">
+          <img class="avatar-image" [src]="avatar.source" alt="Avatar">
+          <div class="shadow" *ngIf="i === currentSlide"></div>
+        </div>
+        <div class="name" *ngIf="i === currentSlide">
+            <input class="input" type="text" [(ngModel)]="avatar.name">
+        </div>
+      </ng-container>
+
+      <!-- controls -->
+      <button class="control prev" (click)="onPreviousClick()">
+        <span class="arrow left"></span>
+      </button>
+      <button class="control next" (click)="onNextClick()">
+        <span class="arrow right"></span>
+      </button>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="row">
+      <div class="block"><span>Strength</span><ng5-slider [(value)]="avatarDetails.strength" [options]="options"></ng5-slider></div>
+      <div class="block"><span>Dexterity</span><ng5-slider [(value)]="avatarDetails.dexterity" [options]="options"></ng5-slider></div>
+     </div>
+     <div class="row">
+       <div class="block"><span>Mind</span><ng5-slider [(value)]="avatarDetails.mind" [options]="options"></ng5-slider></div>
+       <div class="block"><span>Presence</span><ng5-slider [(value)]="avatarDetails.presence" [options]="options"></ng5-slider></div>
+      </div>
+      <div class="row">
+        <div class="block"><span>Vitality</span><ng5-slider [(value)]="avatarDetails.vitality" [options]="disabledOptions"></ng5-slider></div>
+        <div class="block"><span>Evasion</span><ng5-slider [(value)]="avatarDetails.evasion" [options]="disabledOptions"></ng5-slider></div>
+      </div>
+       <div class="row">
+        <div class="block"><span>Armor</span><ng5-slider [(value)]="avatarDetails.armor" [options]="disabledOptions"></ng5-slider></div>
+        <div class="block"><span>Alacrity</span><ng5-slider [(value)]="avatarDetails.alacrity" [options]="disabledOptions"></ng5-slider></div>
+       </div>
+    <div class="row">
+      <div class="block"><span>Tenacity</span><ng5-slider [(value)]="avatarDetails.tenacity" [options]="options"></ng5-slider></div>
+      <div class="block"><span>Power</span><ng5-slider [(value)]="avatarDetails.power" [options]="disabledOptions"></ng5-slider></div>
+    </div>
+  </div>
+</div>
+<div class="btnStack">
+  <div class="container-login-btn">
+    <button class="login-btn"  (click)="save()">
+      Save
+    </button>
+  </div>
+  <div class="container-login-btn">
+    <button class="login-btn" (click)="cancel()">
+      Cancel
+    </button>
+  </div>
+</div>
